@@ -33,11 +33,17 @@ const Navbar = () => {
       >
         <h1 className="w-full text-3xl font-bold text-[#00df9a] m-4">REACT.</h1>
         <ul className=" uppercase p-4">
-          <li className="p-4 border-b border-gray-600 ">Home</li>
-          <li className="p-4 border-b border-gray-600 ">Company</li>
-          <li className="p-4 border-b border-gray-600 ">Resources</li>
-          <li className="p-4 border-b border-gray-600 ">About</li>
-          <li className="p-4 border-b border-gray-600 ">Contact</li>
+          <li className="p-4 border-b border-gray-600 cursor-pointer">Home</li>
+          <li className="p-4 border-b border-gray-600 cursor-pointer">
+            Company
+          </li>
+          <li className="p-4 border-b border-gray-600 cursor-pointer">
+            Resources
+          </li>
+          <li className="p-4 border-b border-gray-600 cursor-pointer">About</li>
+          <li className="p-4 border-b border-gray-600 cursor-pointer">
+            Contact
+          </li>
         </ul>
       </div>
     </div>
