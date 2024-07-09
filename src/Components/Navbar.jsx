@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [nav, setNav] = useState(true);
@@ -17,7 +18,7 @@ const Navbar = () => {
         <li className="p-4 cursor-pointer">Company</li>
         <li className="p-4 cursor-pointer">Resources</li>
         <li className="p-4 cursor-pointer">About</li>
-        <li className="p-4 cursor-pointer">Contact</li>
+        <Link to="/loginPage"><li className="p-4 cursor-pointer">Login</li></Link>
       </ul>
       {/* Mobile */}
       <div onClick={handleNav} className="block md:hidden">
@@ -32,7 +33,7 @@ const Navbar = () => {
         }
       >
         <h1 className="w-full text-3xl font-bold text-[#00df9a] m-4">REACT.</h1>
-        <ul className=" uppercase p-4">
+        <ul className="uppercase p-4">
           <li className="p-4 border-b border-gray-600 cursor-pointer">Home</li>
           <li className="p-4 border-b border-gray-600 cursor-pointer">
             Company
@@ -41,9 +42,7 @@ const Navbar = () => {
             Resources
           </li>
           <li className="p-4 border-b border-gray-600 cursor-pointer">About</li>
-          <li className="p-4 border-b border-gray-600 cursor-pointer">
-            Contact
-          </li>
+          <li className="p-4 border-b border-gray-600 cursor-pointer">Login</li>
         </ul>
       </div>
     </div>

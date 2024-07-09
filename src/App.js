@@ -6,17 +6,11 @@ import Hero from "./Components/Hero";
 import Navbar from "./Components/Navbar";
 import Newsletter from "./Components/Newsletter";
 
+import { RouterProvider } from "react-router-dom";
+import router from "./Routes/routes";
+
 function App() {
-  return (
-    <div>
-      <Navbar />
-      <Hero />
-      <Analytics />
-      <Newsletter />
-      <Cards />
-      <Footer />
-    </div>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;
