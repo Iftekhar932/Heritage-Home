@@ -14,13 +14,14 @@ const googleProvider = new GoogleAuthProvider();
 const useFirebase = () => {
   const auth = getAuth(app);
 
+  https://youtu.be/woITklcvthg?t=1419
+
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true); // for loadingSpinner
 
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        console.log("✨ 🌟  .then  result:", result);
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = googleProvider.credentialFromResult(result);
         const token = credential.accessToken;
