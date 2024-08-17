@@ -4,6 +4,7 @@ import axios from "axios";
 // components
 import LoginPage from "../Components/LoginPage.jsx";
 import Main from "../Components/Main.jsx";
+import Form from "../Components/Form.jsx";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,11 @@ const router = createBrowserRouter([
   {
     path: "/loginPage",
     element: <LoginPage />,
+    // errorElement: <ProductsError />,
+  },
+  {
+    path: "/dataCreateForm",
+    element: <Form />,
     // errorElement: <ProductsError />,
   },
 ]);

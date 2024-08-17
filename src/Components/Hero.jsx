@@ -1,6 +1,7 @@
 import React from "react";
 // import Typed from "react-typed";
 import { ReactTyped } from "react-typed";
+import useFireStore from "../hooks/useFireStore";
 
 const Hero = () => {
   return (

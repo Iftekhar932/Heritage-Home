@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  getAuth,
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
@@ -16,7 +15,6 @@ const googleProvider = new GoogleAuthProvider();
 
 const useFirebase = () => {
   const auth = getAuth(app);
-
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true); // for loadingSpinner
 

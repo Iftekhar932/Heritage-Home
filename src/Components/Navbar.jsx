@@ -15,10 +15,14 @@ const Navbar = () => {
       <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT.</h1>
       <ul className="hidden md:flex">
         <li className="p-4 cursor-pointer">Home</li>
-        <li className="p-4 cursor-pointer">Company</li>
+        <Link to="/dataCreateForm">
+          <li className="p-4 cursor-pointer">Form</li>
+        </Link>
         <li className="p-4 cursor-pointer">Resources</li>
         <li className="p-4 cursor-pointer">About</li>
-        <Link to="/loginPage"><li className="p-4 cursor-pointer">Login</li></Link>
+        <Link to="/loginPage">
+          <li className="p-4 cursor-pointer">Login</li>
+        </Link>
       </ul>
       {/* Mobile */}
       <div onClick={handleNav} className="block md:hidden">
