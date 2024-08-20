@@ -6,6 +6,7 @@ import LoginPage from "../Components/LoginPage.jsx";
 import Main from "../Components/Main.jsx";
 import Form from "../Components/Form.jsx";
 import Projects from "../Components/Projects.jsx";
+import UploadImg from "../Components/UploadImg.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
   {
     path: "/projects",
     element: <Projects />,
+    // errorElement: <ProductsError />,
+  },
+  {
+    path: "/uploadImage",
+    element: <UploadImg />,
     // errorElement: <ProductsError />,
   },
   {
