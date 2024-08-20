@@ -19,7 +19,9 @@ const Navbar = () => {
           <li className="p-4 cursor-pointer">Form</li>
         </Link>
         <li className="p-4 cursor-pointer">Resources</li>
-        <li className="p-4 cursor-pointer">About</li>
+        <Link to="/projects">
+          <li className="p-4 cursor-pointer">Projects</li>
+        </Link>
         <Link to="/loginPage">
           <li className="p-4 cursor-pointer">Login</li>
         </Link>
