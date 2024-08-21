@@ -7,6 +7,7 @@ import Main from "../Components/Main.jsx";
 import Form from "../Components/Form.jsx";
 import Projects from "../Components/Projects.jsx";
 import UploadImg from "../Components/UploadImg.jsx";
+import Resources from "../Components/Resources.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/resources",
-    element: <UploadImg />,
+    element: <Resources />,
     // errorElement: <ProductsError />,
   },
   {
