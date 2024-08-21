@@ -29,6 +29,11 @@ const router = createBrowserRouter([
     // errorElement: <ProductsError />,
   },
   {
+    path: "/resources",
+    element: <UploadImg />,
+    // errorElement: <ProductsError />,
+  },
+  {
     path: "/dataCreateForm",
     element: <Form />,
     // errorElement: <ProductsError />,

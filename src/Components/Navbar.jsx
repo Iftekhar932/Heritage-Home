@@ -18,7 +18,9 @@ const Navbar = () => {
         <Link to="/dataCreateForm">
           <li className="p-4 cursor-pointer">Form</li>
         </Link>
-        <li className="p-4 cursor-pointer">Resources</li>
+        <Link to="/resources">
+          <li className="p-4 cursor-pointer">resources</li>
+        </Link>
         <Link to="/projects">
           <li className="p-4 cursor-pointer">Projects</li>
         </Link>
