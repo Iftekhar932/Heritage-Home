@@ -1,7 +1,7 @@
 import React from "react";
 import { storage } from "../firebase/firebase.init";
 import { ref, uploadBytes } from "firebase/storage";
-// import {v4} from "uuid"
+import { v4 } from "uuid";
 
 // https://youtu.be/5986IgwaVKE?t=339
 const UploadImg = () => {
