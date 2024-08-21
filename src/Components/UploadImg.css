@@ -1,0 +1,19 @@
+.upload-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .drop-area {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+  }
+  
+  .drag-over {
+    border-color: #3490dc;
+  }
+  
+  .image-preview {
+    margin-top: 20px;
+  }
