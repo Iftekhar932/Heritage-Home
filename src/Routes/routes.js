@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import axios from "axios";
 
 // components
 import LoginPage from "../Components/LoginPage.jsx";
@@ -7,7 +6,7 @@ import Main from "../Components/Main.jsx";
 import Form from "../Components/Form.jsx";
 import Projects from "../Components/Projects.jsx";
 import UploadImg from "../Components/UploadImg.jsx";
-import Resources from "../Components/Resources.jsx";
+import AboutUs from "../Components/AboutUs.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,8 +29,8 @@ const router = createBrowserRouter([
     // errorElement: <ProductsError />,
   },
   {
-    path: "/resources",
-    element: <Resources />,
+    path: "/aboutUs",
+    element: <AboutUs />,
     // errorElement: <ProductsError />,
   },
   {
