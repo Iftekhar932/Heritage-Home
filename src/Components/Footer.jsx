@@ -44,7 +44,7 @@ const Footer = () => {
           <h6 className="font-medium text-gray-400">Company</h6>
           <ul>
             <li
-              className="py-2 text-sm cursor-pointer"
+              className="py-2 text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline text-sm cursor-pointer"
               onClick={() =>
                 scrollWithId(document.getElementById("legalDocuments")?.id)
               }
@@ -52,7 +52,7 @@ const Footer = () => {
               Legal Documents
             </li>
             <li
-              className="py-2 text-sm cursor-pointer"
+              className="py-2 text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline text-sm cursor-pointer"
               onClick={() =>
                 scrollWithId(document.getElementById("companyStructure")?.id)
               }
@@ -61,7 +61,7 @@ const Footer = () => {
             </li>
 
             <li
-              className="py-2 text-sm cursor-pointer"
+              className="py-2 text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline text-sm cursor-pointer"
               onClick={() => scrollWithId(document.getElementById("nav")?.id)}
             >
               Back To Top

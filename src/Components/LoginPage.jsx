@@ -51,7 +51,7 @@ const LoginPage = () => {
             <input
               type="email"
               name="email"
-              onBlur={handleOnBlur}
+              onKeyUp={handleOnBlur}
               id="name"
               placeholder="Email"
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -67,7 +67,7 @@ const LoginPage = () => {
             <input
               type="password"
               name="password"
-              onBlur={handleOnBlur}
+              onKeyUp={handleOnBlur}
               id="phone"
               placeholder="Enter your password"
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"

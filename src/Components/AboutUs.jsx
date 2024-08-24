@@ -1,69 +1,28 @@
 import React from "react";
-import Single from "../assets/single.png";
-import Double from "../assets/double.png";
-import Triple from "../assets/triple.png";
+import SingleProject from "./SingleProject";
+import LoadingAnimation from "./LoadingAnimation";
+
+import project_photo1 from "../assets/project_photos/project_photo (1).jpeg";
+import project_photo2 from "../assets/project_photos/project_photo (2).jpeg";
+import project_photo3 from "../assets/project_photos/project_photo (3).jpeg";
+import project_photo4 from "../assets/project_photos/project_photo (4).jpeg";
+import project_photo5 from "../assets/project_photos/project_photo (5).jpeg";
+import project_photo6 from "../assets/project_photos/project_photo (6).jpeg";
 
 const AboutUs = () => {
+  const images = [
+    project_photo1,
+    project_photo2,
+    project_photo3,
+    project_photo4,
+    project_photo5,
+    project_photo6,
+  ];
   return (
-    <div className="w-full py-[10rem] px-4 bg-white">
-      <div className="max-w-[1240px] mx-auto grid md:grid-cols-3 gap-8">
-        {/* Single Card */}
-        <div className="w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
-          <img
-            className="w-20 mx-auto mt-[-3rem] bg-white"
-            src={Single}
-            alt=""
-          />
-          <h2 className="text-2xl font-bold text-center py-8">single User</h2>
-          <p className="text-4xl text-center font-bold">$149</p>
-          <div className="text-center font-medium">
-            <p className="py-2 border-b mx-8 mt-8">500 GB Storage</p>
-            <p className="py-2 border-b mx-8">1 Granted User</p>
-            <p className="py-2 border-b mx-8">Send up to 2 GB</p>
-          </div>
-          <button className="text-black bg-[#00df9a] rounded-md font-medium w-[200px] my-6 px-6 py-3 mx-auto">
-            Start Trial
-          </button>
-        </div>
-
-        {/* Single Card */}
-        <div className="w-full shadow-xl flex flex-col p-4 md:my-0 my-8 rounded-lg hover:scale-105 duration-300 bg-gray-100  ">
-          <img
-            className="w-20 mx-auto mt-[-3rem] bg-transparent"
-            src={Double}
-            alt=""
-          />
-          <h2 className="text-2xl font-bold text-center py-8">single User</h2>
-          <p className="text-4xl text-center font-bold">$149</p>
-          <div className="text-center font-medium">
-            <p className="py-2 border-b mx-8 mt-8">500 GB Storage</p>
-            <p className="py-2 border-b mx-8">1 Granted User</p>
-            <p className="py-2 border-b mx-8">Send up to 2 GB</p>
-          </div>
-          <button className="bg-black text-[#00df9a] rounded-md font-medium w-[200px] my-6 px-6 py-3 mx-auto">
-            Start Trial
-          </button>
-        </div>
-
-        {/* Single Card */}
-        <div className="w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
-          <img
-            className="w-20 mx-auto mt-[-3rem] bg-white"
-            src={Triple}
-            alt=""
-          />
-          <h2 className="text-2xl font-bold text-center py-8">single User</h2>
-          <p className="text-4xl text-center font-bold">$149</p>
-          <div className="text-center font-medium">
-            <p className="py-2 border-b mx-8 mt-8">500 GB Storage</p>
-            <p className="py-2 border-b mx-8">1 Granted User</p>
-            <p className="py-2 border-b mx-8">Send up to 2 GB</p>
-          </div>
-          <button className="text-black bg-[#00df9a] rounded-md font-medium w-[200px] my-6 px-6 py-3 mx-auto">
-            Start Trial
-          </button>
-        </div>
-      </div>
+    <div className="w-full mx-auto py-[10rem] px-4 bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 place-items-center">
+      {images.map((img, i) => (
+        <SingleProject img={img} key={i} />
+      ))}
     </div>
   );
 };

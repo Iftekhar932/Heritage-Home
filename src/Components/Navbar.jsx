@@ -23,9 +23,11 @@ const Navbar = () => {
         <Link to="/">
           <li className="p-4 cursor-pointer">Home</li>
         </Link>
-        <Link to="/dataCreateForm">
-          <li className="p-4 cursor-pointer">Form</li>
-        </Link>
+        {user?.email && (
+          <Link to="/dataCreateForm">
+            <li className="p-4 cursor-pointer">Form</li>
+          </Link>
+        )}
         <Link to="/aboutUs">
           <li className="p-4 cursor-pointer">About</li>
         </Link>
