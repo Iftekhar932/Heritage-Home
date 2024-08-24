@@ -14,7 +14,7 @@ const Main = () => {
       <Analytics />
       {/* <Newsletter /> */}
       <Cards />
-      {/* <Footer /> */}
+      <Footer />
       {/* <SingleProject /> */}
     </>
   );

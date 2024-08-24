@@ -11,62 +11,40 @@ const Footer = () => {
   return (
     <div className="max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300">
       <div>
-        <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT.</h1>
-        <p className="py-4">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta soluta
-          est amet accusantium sequi, voluptas consectetur delectus repudiandae!
-        </p>
-        <div className="flex justify-between md:w-[75%] my-6">
+        <h1 className="w-full text-3xl font-bold text-[#00df9a]">Contact Us</h1>
+        <p className="py-4">Plan Better Do Better </p>
+        {/* <div className="flex justify-between md:w-[75%] my-6">
           <FaFacebook size={30} />
           <FaInstagram size={30} />
           <FaTwitterSquare size={30} />
           <FaGithub size={30} />
           <FaDribbbleSquare size={30} />
-        </div>
+        </div> */}
       </div>
-      <div className="lg:col-span-3 flex justify-between">
-        <div>
-          <h6 className="font-medium text-gray-400">Solutions</h6>
+      <div className="col-span-3 flex justify-between flex-col md:flex-row">
+        <div className="my-4 sm:my-0 text-center ">
+          <h6 className="font-medium text-gray-400">General Manager</h6>
           <ul>
-            <li className="py-2 text-sm">Analytics</li>
-            <li className="py-2 text-sm">Marketing</li>
-            <li className="py-2 text-sm">Commerce</li>
-            <li className="py-2 text-sm">Insights</li>
+            <li className="py-2 text-sm">Name: Tarek Ahmed Msahel</li>
+            <li className="py-2 text-sm">Mobile +974 55724419</li>
+            <li className="py-2 text-sm">Email: info.heritage18@gmail.com</li>
           </ul>
         </div>
-        <div>
-          <h6 className="font-medium text-gray-400">Support</h6>
+        <div className="my-4 sm:my-0 text-center ">
+          <h6 className="font-medium text-gray-400">Managing Partner</h6>
           <ul>
-            <li className="py-2 text-sm">Pricing</li>
-            <li className="py-2 text-sm">Documentation</li>
-            <li className="py-2 text-sm">Guides</li>
-            <li className="py-2 text-sm">API Status</li>
+            <li className="py-2 text-sm">Name: Md Omur Faruk</li>
+            <li className="py-2 text-sm">Mobile +974 50946376</li>
+            <li className="py-2 text-sm">Email: cma.qa2018@gmail.com</li>
           </ul>
         </div>
-        <div>
+        <div className="my-4 sm:my-0 text-center">
           <h6 className="font-medium text-gray-400">Company</h6>
           <ul>
-            <li className="py-2 text-sm">About</li>
             <li className="py-2 text-sm">Blog</li>
-            <li className="py-2 text-sm">Jobs</li>
+            <li className="py-2 text-sm">Company Structure</li>
             <li className="py-2 text-sm">Press</li>
             <li className="py-2 text-sm">Careers</li>
-          </ul>
-        </div>
-        <div>
-          <h6 className="font-medium text-gray-400">Legal</h6>
-          <ul>
-            <li className="py-2 text-sm">Claim</li>
-            <li className="py-2 text-sm">Policy</li>
-            <li className="py-2 text-sm">Terms</li>
-          </ul>
-        </div>
-        <div>
-          <h6 className="font-medium text-gray-400">Legal</h6>
-          <ul>
-            <li className="py-2 text-sm">Claim</li>
-            <li className="py-2 text-sm">Policy</li>
-            <li className="py-2 text-sm">Terms</li>
           </ul>
         </div>
       </div>
