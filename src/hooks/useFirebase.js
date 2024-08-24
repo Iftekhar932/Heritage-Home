@@ -3,45 +3,19 @@ import React, { useEffect, useState } from "react";
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  GoogleAuthProvider,
   signInWithPopup,
   signOut,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 // import { app } from "../Firebase/firebase.init.js";
 import { app } from "../firebase/firebase.init";
-
-const googleProvider = new GoogleAuthProvider();
+import { useNavigate } from "react-router-dom";
 
 const useFirebase = () => {
   const auth = getAuth(app);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true); // for loadingSpinner
-
-  // GOOGLE SIGN IN
-  const handleGoogleSignIn = async () => {
-    await signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = googleProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        setUser(user);
-        // IdP data available using getAdditionalUserInfo(result)
-        // ...
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        // const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
-  };
+  const navigate = useNavigate();
 
   // EMAIL SIGNUP
   const emailSignup = async (email, password) => {
@@ -50,7 +24,7 @@ const useFirebase = () => {
         // Signed up
         const user = userCredential.user;
         setUser(user);
-        // ...
+        window.alert("User Account Created");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -66,10 +40,15 @@ const useFirebase = () => {
         // Signed in
         const user = userCredential.user;
         setUser(user);
+        window.alert("User Signed In");
+        navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        if (errorCode || errorMessage) {
+          window.alert("Login Failed", errorMessage, errorCode);
+        }
       });
   };
 
@@ -78,7 +57,8 @@ const useFirebase = () => {
     await signOut(auth)
       .then((d) => {
         // Sign-out successful.
-        console.log(d, "signed Out");
+        navigate("/");
+        window.alert("Signed Out");
       })
       .catch((error) => {
         // An error happened.
@@ -105,7 +85,6 @@ const useFirebase = () => {
     loading,
     setLoading,
     logOut,
-    handleGoogleSignIn,
     emailSignup,
     emailSignIn,
   };

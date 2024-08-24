@@ -6,8 +6,10 @@ import {
   FaInstagram,
   FaTwitterSquare,
 } from "react-icons/fa";
+import useScroller from "../hooks/useScroller";
 
 const Footer = () => {
+  const { scrollWithId } = useScroller();
   return (
     <div className="max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300">
       <div>
@@ -41,10 +43,29 @@ const Footer = () => {
         <div className="my-4 sm:my-0 text-center">
           <h6 className="font-medium text-gray-400">Company</h6>
           <ul>
-            <li className="py-2 text-sm">Blog</li>
-            <li className="py-2 text-sm">Company Structure</li>
-            <li className="py-2 text-sm">Press</li>
-            <li className="py-2 text-sm">Careers</li>
+            <li
+              className="py-2 text-sm cursor-pointer"
+              onClick={() =>
+                scrollWithId(document.getElementById("legalDocuments")?.id)
+              }
+            >
+              Legal Documents
+            </li>
+            <li
+              className="py-2 text-sm cursor-pointer"
+              onClick={() =>
+                scrollWithId(document.getElementById("companyStructure")?.id)
+              }
+            >
+              Company Structure
+            </li>
+
+            <li
+              className="py-2 text-sm cursor-pointer"
+              onClick={() => scrollWithId(document.getElementById("nav")?.id)}
+            >
+              Back To Top
+            </li>
           </ul>
         </div>
       </div>

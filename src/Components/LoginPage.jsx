@@ -27,11 +27,12 @@ const LoginPage = () => {
     const fieldValue = e.target.value;
     credentials[fieldName] = fieldValue;
     setCredentials(credentials);
-    console.log("16 loginpage.jsx", credentials);
+    console.log("🚀 ~ handleOnBlur ~ credentials:", credentials);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailSignup(credentials?.email, credentials?.password);
+    // emailSignup(credentials?.email, credentials?.password);
+    emailSignIn(credentials?.email, credentials?.password);
   };
 
   return (
@@ -48,7 +49,7 @@ const LoginPage = () => {
               Email
             </label>
             <input
-              type="text"
+              type="email"
               name="email"
               onBlur={handleOnBlur}
               id="name"
@@ -64,7 +65,7 @@ const LoginPage = () => {
               Password
             </label>
             <input
-              type="text"
+              type="password"
               name="password"
               onBlur={handleOnBlur}
               id="phone"

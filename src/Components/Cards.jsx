@@ -12,7 +12,7 @@ import Card from "./Card";
 const Cards = () => {
   const documents = [doc1, doc2, doc3, doc4, doc5];
   return (
-    <div className="w-full py-[10rem] px-4 bg-white">
+    <div className="w-full py-[10rem] px-4 bg-white" id="legalDocuments">
       <h1 className="text-center text-3xl mb-4">
         Legal Documents & Structures{" "}
       </h1>
@@ -22,11 +22,12 @@ const Cards = () => {
         ))}
       </div>
       <motion.div
-        className="w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300"
+        className="w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-101 duration-300"
+        id="companyStructure"
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1, transition: { duration: 1 } }}
+        whileInView={{ opacity: 1, transition: { duration: 1.5 } }}
       >
-        <img className="mx-auto" src={structureImg} alt="" />
+        <img className="mx-auto hover:scale-none" src={structureImg} alt="" />
       </motion.div>
     </div>
   );

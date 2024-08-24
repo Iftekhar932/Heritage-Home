@@ -4,40 +4,23 @@ import { motion } from "framer-motion";
 
 const Analytics = () => {
   return (
-    <motion.div
-      className="w-full bg-white py-16 px-4"
-      initial={{ opacity: 0 }}
-      whileInView={{
-        opacity: 1,
-        transition: { duration: 1 },
-      }}
-    >
-      <div className="max-w-[1240px] mx-auto grid md:grid-cols-2">
-        <motion.img
-          initial={{ opacity: 0, translateX: "-100px" }}
-          whileInView={{
-            opacity: 1,
-            transition: { duration: 1 },
-            translateX: "0px",
-          }}
-          src={Laptop}
-          alt="/"
-        />
+    <div className="w-full bg-white py-16 px-4">
+      <motion.div
+        className="max-w-[1240px] mx-auto grid md:grid-cols-2"
+        initial={{ opacity: 0, translateX: "-100px" }}
+        whileInView={{
+          opacity: 1,
+          translateX: "0px",
+          transition: { duration: 1.5 },
+        }}
+      >
+        <img src={Laptop} alt="/" />
         <div className="flex flex-col justify-center ">
           <p className="text-[#00df9a] font-bold">MESSAGE FROM THE CHAIRMAN</p>
           <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold py-2">
             About the flourishing economy
           </h1>
-          <motion.p
-            initial={{ opacity: 0, translateX: "100px" }}
-            whileInView={{
-              opacity: 1,
-              transition: { duration: 1 },
-              translateX: "0px",
-            }}
-            src={Laptop}
-            alt="/"
-          >
+          <p src={Laptop} alt="/">
             The flourishing economy of our region presents exciting new
             prospects and supports boundless opportunities. We at HERITAGE HOME
             CONSTRUCTION measure our success from the degree of satisfaction we
@@ -58,13 +41,13 @@ const Analytics = () => {
             contribute in Qatar’s continuous progress where we see immense
             opportunities and a promising future for all. ~{" "}
             <b>Waleed Mubarak al-Muhannadi</b>
-          </motion.p>
+          </p>
           {/* <button className="bg-black text-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto md:mx-0  py-3">
             Get Started
           </button> */}
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 

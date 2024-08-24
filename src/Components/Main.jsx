@@ -1,21 +1,15 @@
 import React from "react";
-import Analytics from "./Analytics";
-import Cards from "./Cards";
 import Footer from "./Footer";
-import Hero from "./Hero";
 import Navbar from "./Navbar";
-import Newsletter from "./Newsletter";
-import SingleProject from "./SingleProject";
+
+import { Outlet } from "react-router-dom";
+
 const Main = () => {
   return (
     <>
       <Navbar />
-      <Hero />
-      <Analytics />
-      {/* <Newsletter /> */}
-      <Cards />
+      <Outlet />
       <Footer />
-      {/* <SingleProject /> */}
     </>
   );
 };

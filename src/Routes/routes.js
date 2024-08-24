@@ -7,31 +7,45 @@ import Form from "../Components/Form.jsx";
 import Projects from "../Components/Projects.jsx";
 import UploadImg from "../Components/UploadImg.jsx";
 import AboutUs from "../Components/AboutUs.jsx";
+import Hero from "../Components/Hero.jsx";
+import Cards from "../Components/Cards.jsx";
+import Analytics from "../Components/Analytics.jsx";
+import Footer from "../Components/Footer.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-  },
-  {
-    path: "/loginPage",
-    element: <LoginPage />,
-  },
-  {
-    path: "/projects",
-    element: <Projects />,
-  },
-  {
-    path: "/uploadImage",
-    element: <UploadImg />,
-  },
-  {
-    path: "/aboutUs",
-    element: <AboutUs />,
-  },
-  {
-    path: "/dataCreateForm",
-    element: <Form />,
+    children: [
+      {
+        path: "/",
+        element: (
+          <>
+            <Hero />
+            <Analytics />
+            <Cards />
+            {/* <Footer /> */}
+          </>
+        ),
+      },
+      {
+        path: "/loginPage",
+        element: <LoginPage />,
+      },
+
+      {
+        path: "/projects",
+        element: <Projects />,
+      },
+      {
+        path: "/aboutUs",
+        element: <AboutUs />,
+      },
+      {
+        path: "/dataCreateForm",
+        element: <Form />,
+      },
+    ],
   },
 ]);
 
