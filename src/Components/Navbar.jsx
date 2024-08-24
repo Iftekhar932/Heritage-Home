@@ -12,9 +12,13 @@ const Navbar = () => {
   return (
     <div className="flex justify-between items-center h-24 max-w-[1240px] px-4 text-white">
       {/* Tab, Pc, Laptop */}
-      <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT.</h1>
+      <h1 className="w-full text-2xl font-bold text-[#00df9a] font-mono">
+        Heritage Home
+      </h1>
       <ul className="hidden md:flex">
-        <li className="p-4 cursor-pointer">Home</li>
+        <Link to="/">
+          <li className="p-4 cursor-pointer">Home</li>
+        </Link>
         <Link to="/dataCreateForm">
           <li className="p-4 cursor-pointer">Form</li>
         </Link>

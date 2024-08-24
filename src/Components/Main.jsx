@@ -5,15 +5,17 @@ import Footer from "./Footer";
 import Hero from "./Hero";
 import Navbar from "./Navbar";
 import Newsletter from "./Newsletter";
+import SingleProject from "./SingleProject";
 const Main = () => {
   return (
     <>
       <Navbar />
       <Hero />
       <Analytics />
-      <Newsletter />
+      {/* <Newsletter /> */}
       <Cards />
-      <Footer />
+      {/* <Footer /> */}
+      {/* <SingleProject /> */}
     </>
   );
 };

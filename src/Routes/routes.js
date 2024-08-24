@@ -16,27 +16,22 @@ const router = createBrowserRouter([
   {
     path: "/loginPage",
     element: <LoginPage />,
-    // errorElement: <ProductsError />,
   },
   {
     path: "/projects",
     element: <Projects />,
-    // errorElement: <ProductsError />,
   },
   {
     path: "/uploadImage",
     element: <UploadImg />,
-    // errorElement: <ProductsError />,
   },
   {
     path: "/aboutUs",
     element: <AboutUs />,
-    // errorElement: <ProductsError />,
   },
   {
     path: "/dataCreateForm",
     element: <Form />,
-    // errorElement: <ProductsError />,
   },
 ]);
 
