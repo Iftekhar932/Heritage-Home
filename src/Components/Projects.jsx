@@ -7,6 +7,7 @@ import LoadingAnimation from "./LoadingAnimation"; // Assuming you have a Spinne
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
+  console.log("🚀 ~ Projects ~ projects:", projects);
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useFirebase();
   const { readAllData } = useFireStore();
@@ -31,7 +32,7 @@ const Projects = () => {
     };
 
     fetchData();
-  }, [user, readAllData, navigate]);
+  }, []);
 
   return (
     <div>

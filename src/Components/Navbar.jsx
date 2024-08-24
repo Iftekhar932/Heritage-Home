@@ -31,11 +31,9 @@ const Navbar = () => {
         <Link to="/aboutUs">
           <li className="p-4 cursor-pointer">About</li>
         </Link>
-        {user?.email && (
-          <Link to="/projects">
-            <li className="p-4 cursor-pointer">Projects</li>
-          </Link>
-        )}
+        <Link to="/projects">
+          <li className="p-4 cursor-pointer">Projects</li>
+        </Link>
         {user?.email ? (
           <li className="p-4 cursor-pointer" onClick={() => logOut()}>
             Logout

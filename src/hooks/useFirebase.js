@@ -91,7 +91,7 @@ const useFirebase = () => {
         setLoading(false); // Hide loading spinner
 
         // Check if the current path is in the list of allowed public pages
-        const allowedPublicPages = ["/loginPage", "/about", "/"]; // Replace with your desired public pages
+        const allowedPublicPages = ["/loginPage", "/about", "/projects", "/"]; // Replace with your desired public pages
         if (!allowedPublicPages.includes(window.location.pathname)) {
           // Redirect to the login page if the user is not logged in and the current page is not public
           navigate("/");
