@@ -4,8 +4,8 @@ import Double from "../assets/double.png";
 import Triple from "../assets/triple.png";
 import img1 from "../assets/double.png";
 
-image fetch kore ekhane jei object theke details antesi shekhane  IMAGE FETCH KORE AINE OBJECT A RAKHTE HOBE
-ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR
+/* image fetch kore ekhane jei object theke details antesi shekhane  IMAGE FETCH KORE AINE OBJECT A RAKHTE HOBE
+ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR */
 
 const Project = ({ singleProject }) => {
   const { id, project, email, description } = singleProject;

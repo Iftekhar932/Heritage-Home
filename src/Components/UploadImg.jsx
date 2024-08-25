@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { storage } from "../firebase/firebase.init";
-import { ref, uploadBytes } from "firebase/storage";
+import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
 import "./UploadImg.css";
 
 const UploadImg = () => {
   const [imageFile, setImageFile] = useState(null);
+  const [imgURL, setImgURL] = useState([]);
   const dropAreaRef = useRef(null);
 
   const handleDragOver = (event) => {
@@ -27,6 +28,17 @@ const UploadImg = () => {
     setImageFile(droppedFile);
     dropAreaRef.current.classList.remove("drag-over"); // Remove visual feedback
   };
+
+  useEffect(() => {
+    listAll(ref(storage, "files")).then((imgs) => {
+      imgs?.items?.forEach((val) => {
+        console.log(val);
+        getDownloadURL(val).then((url) => {
+          setImgURL((data) => [...data, url]);
+        });
+      });
+    });
+  }, []);
 
   useEffect(() => {
     const dropArea = dropAreaRef.current;
@@ -64,15 +76,20 @@ const UploadImg = () => {
     inputEl.click(); // Simulate click event to open file selection dialog
   };
 
+  // also triggered when clicked
   const handleUpload = async () => {
     if (!imageFile) {
-      return; // Prevent uploading if no file is selected
+      return window.alert("No Image selected"); // Prevent uploading if no file is selected
     }
 
     const imgRef = ref(storage, `files/${v4()}`);
-    await uploadBytes(imgRef, imageFile);
-    // Handle upload completion (e.g., display success message, reset state)
-    console.log("File uploaded successfully!");
+    await uploadBytes(imgRef, imageFile).then((val) => {
+      console.log(val);
+      getDownloadURL(val.ref).then((url) => {
+        setImgURL((data) => [...data, url]);
+      });
+    });
+
     setImageFile(null); // Reset state after successful upload
   };
 
@@ -111,6 +128,10 @@ const UploadImg = () => {
       >
         Upload
       </button>
+      {imgURL.map((d, i) => {
+        console.log("🚀 ~ {imgURL.map ~ d:", d);
+        return <img src={d} height="200px" key={i} />;
+      })}
     </div>
   );
 };
