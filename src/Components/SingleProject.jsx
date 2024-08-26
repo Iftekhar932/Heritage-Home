@@ -1,8 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
+import useFireStore from "../hooks/useFireStore";
+import useFirebase from "../hooks/useFirebase";
 
-const SingleProject = ({ img }) => {
+const SingleProject = ({ projectToDisplay }) => {
   const [zoom, setZoom] = React.useState(false);
+  const { deleteData } = useFireStore();
+  const { user } = useFirebase();
+  const { image, description, project } = projectToDisplay;
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -13,19 +19,25 @@ const SingleProject = ({ img }) => {
       <div className="text-center">
         <img
           className="mx-auto w-full rounded-full hover:rounded-none cursor-pointer scale-1 hover:scale-150 hover:sm:scale-125 duration-500"
-          src={img}
+          src={image}
           alt="user-avatar"
           // whileTap={{ scale: 1.5, duration: 500 }}
           // onClick={() => setZoom(!zoom)}
         />
-        <h3 className="mt-6 text-2xl font-semibold ">Jessica Randall</h3>
-        <h5 className="mt-[5px] text-sm font-semibold text-green">
-          London, United Kingdom
-        </h5>
-        <p className="mt-[26px] text-sm font-normal ">
-          "Front-end developer and avid reader."
-        </p>
+        <h3 className="mt-6 text-2xl font-semibold ">{project}</h3>
+        {/* <h5 className="mt-[5px] text-sm font-semibold text-green">
+          {description}
+        </h5> */}
+        <p className="mt-[26px] text-sm font-normal ">{description}</p>
       </div>
+      {user?.email && (
+        <button
+          className="bg-black text-[#00df9a] rounded-md font-medium w-[200px] my-6 px-6 py-3 mx-auto"
+          onClick={() => deleteData(project)}
+        >
+          Delete
+        </button>
+      )}
     </motion.div>
   );
 };

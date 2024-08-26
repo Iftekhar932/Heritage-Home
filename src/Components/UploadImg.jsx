@@ -4,36 +4,47 @@ import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
 import "./UploadImg.css";
 
-const UploadImg = () => {
-  const [imageFile, setImageFile] = useState(null);
+const UploadImg = ({
+  allowSubmit,
+  setAllowSubmit,
+  info,
+  setInfo,
+  handleUpload,
+  imageFile,
+  setImageFile,
+}) => {
+  // const [imageFile, setImageFile] = useState(null);
   const [imgURL, setImgURL] = useState([]);
   const dropAreaRef = useRef(null);
 
   const handleDragOver = (event) => {
+    console.log("dragover");
     event.preventDefault();
     event.stopPropagation();
     dropAreaRef.current.classList.add("drag-over"); // Add visual feedback
   };
 
   const handleDragLeave = (event) => {
+    console.log("dragleave");
     event.preventDefault();
     event.stopPropagation();
     dropAreaRef.current.classList.remove("drag-over"); // Remove visual feedback
   };
 
   const handleDrop = (event) => {
+    console.log("dragdrop");
+
     event.preventDefault();
     event.stopPropagation();
     const droppedFile = event.dataTransfer.files[0];
     setImageFile(droppedFile);
     dropAreaRef.current.classList.remove("drag-over"); // Remove visual feedback
   };
-
   useEffect(() => {
     listAll(ref(storage, "files")).then((imgs) => {
       imgs?.items?.forEach((val) => {
-        console.log(val);
         getDownloadURL(val).then((url) => {
+          console.log(url);
           setImgURL((data) => [...data, url]);
         });
       });
@@ -52,6 +63,7 @@ const UploadImg = () => {
     };
 
     const handleDropInternal = (event) => {
+      console.log("clicked handleDropInternal");
       handleDrop(event);
     };
 
@@ -66,31 +78,38 @@ const UploadImg = () => {
       dropArea.removeEventListener("drop", handleDropInternal);
     };
   }, []);
+  /* 
+  // also triggered when clicked
+  const handleUpload = async () => {
+    console.log("clicked handle upload");
 
+    const imgRef = ref(storage, `files/${v4()}`);
+    await uploadBytes(imgRef, imageFile).then((val) => {
+      getDownloadURL(val.ref).then((url) => {
+        // console.log("🚀 ~ getDownloadURL ~ val.ref:", val.ref, "url", url);
+        info["image"] = url;
+        setInfo(info);
+        setImgURL((data) => [...data, url]);
+      });
+    });
+    setImageFile(null); // Reset state after successful upload
+  };
+ */
+
+  //⬇️ image drag and drop function
   const handleClick = () => {
+    console.log("clicked handle click");
+    console.log(info);
     // Fallback for non-drag-and-drop upload
     const inputEl = document.createElement("input");
     inputEl.type = "file";
     inputEl.accept = "image/*"; // Restrict file type if needed
-    inputEl.onchange = (e) => setImageFile(e.target.files[0]);
+    inputEl.onclick = () => setInfo({ image: true, ...info });
+    inputEl.onchange = (e) => {
+      setImageFile(e.target.files[0]);
+    };
+
     inputEl.click(); // Simulate click event to open file selection dialog
-  };
-
-  // also triggered when clicked
-  const handleUpload = async () => {
-    if (!imageFile) {
-      return window.alert("No Image selected"); // Prevent uploading if no file is selected
-    }
-
-    const imgRef = ref(storage, `files/${v4()}`);
-    await uploadBytes(imgRef, imageFile).then((val) => {
-      console.log(val);
-      getDownloadURL(val.ref).then((url) => {
-        setImgURL((data) => [...data, url]);
-      });
-    });
-
-    setImageFile(null); // Reset state after successful upload
   };
 
   return (
@@ -121,17 +140,10 @@ const UploadImg = () => {
           />
         </div>
       )}
-      <button
-        className="bg-green-500 cursor-pointer text-white px-4 py-2 my-2 rounded-md"
-        onClick={handleUpload}
-        disabled={!imageFile}
-      >
-        Upload
-      </button>
-      {imgURL.map((d, i) => {
-        console.log("🚀 ~ {imgURL.map ~ d:", d);
+
+      {/* {imgURL.map((d, i) => {
         return <img src={d} height="200px" key={i} />;
-      })}
+      })} */}
     </div>
   );
 };

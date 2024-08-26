@@ -1,18 +1,33 @@
 import React, { useState, useEffect } from "react";
-import Project from "./Project";
-import useFireStore from "../hooks/useFireStore";
 import useFirebase from "../hooks/useFirebase";
+import Project from "./Project";
 import { useNavigate } from "react-router-dom";
+import useFireStore from "../hooks/useFireStore";
 import LoadingAnimation from "./LoadingAnimation"; // Assuming you have a Spinner component
+
+import SingleProject from "./SingleProject";
+import { getDownloadURL, listAll, ref } from "firebase/storage";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useFirebase();
   const { readAllData } = useFireStore();
-
   const navigate = useNavigate();
 
+  console.log("🚀 ~ Projects ~ projects:", projects);
+  /* 
+  useEffect(() => {
+    listAll(ref(storage, "files")).then((imgs) => {
+      imgs?.items?.forEach((val) => {
+        getDownloadURL(val).then((url) => {
+          console.log(url);
+          setImgURL((data) => [...data, url]);
+        });
+      });
+    });
+  }, []);
+ */
   useEffect(() => {
     if (user?.email === false || null) {
       navigate("/");
@@ -38,12 +53,10 @@ const Projects = () => {
       {isLoading ? (
         <LoadingAnimation />
       ) : (
-        <div>
-          {projects?.map((singleProject) => {
-            return (
-              <Project key={singleProject?.id} singleProject={singleProject} />
-            );
-          })}
+        <div className="w-full mx-auto py-[10rem] px-4 bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 place-items-center">
+          {projects?.map((project, i) => (
+            <SingleProject projectToDisplay={project} key={i} />
+          ))}
         </div>
       )}
     </div>

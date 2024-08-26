@@ -9,24 +9,31 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { db } from "../firebase/firebase.init";
+import { v4 } from "uuid";
 
 const useFireStore = () => {
   // 🟩🟩 Add a new document("constructions") in collection "construction_data"
   const createData = async (dataToCreate) => {
-    console.log("🚀 ~ createData ~ dataToCreate:", dataToCreate.project);
-    await setDoc(doc(db, "construction_projects", dataToCreate?.project), {
-      projects: dataToCreate,
-    });
+    await setDoc(
+      doc(db, "construction_projects", dataToCreate?.project),
+      {
+        projects: dataToCreate,
+      },
+      { merge: true }
+    );
+    console.log("created");
   };
+
   //🟩🟩 delete document
   const deleteData = async (dataToDelete) => {
-    await deleteDoc(doc(db, "cities", "DC"));
+    await deleteDoc(doc(db, "construction_projects", dataToDelete));
   };
+
   //🟩🟩 data will be merged if the specified document already exists
   const docRef = doc(db, "construction_projects", "constructions");
-  const mergeData = async () => {
+  /* const mergeData = async () => {
     await setDoc(docRef, { bolo: "acca" }, { merge: true });
-  };
+  }; */
 
   // 🟩🟩 The following example shows how to retrieve the contents of a single document using get():
   const readData = async () => {
@@ -56,7 +63,7 @@ const useFireStore = () => {
 
   return {
     createData,
-    mergeData,
+    // mergeData,
     deleteDoc,
     deleteData,
     readData,
