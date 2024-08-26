@@ -9,18 +9,13 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { db } from "../firebase/firebase.init";
-import { v4 } from "uuid";
 
 const useFireStore = () => {
   // 🟩🟩 Add a new document("constructions") in collection "construction_data"
   const createData = async (dataToCreate) => {
-    await setDoc(
-      doc(db, "construction_projects", dataToCreate?.project),
-      {
-        projects: dataToCreate,
-      },
-      { merge: true }
-    );
+    await setDoc(doc(db, "construction_projects", dataToCreate?.project), {
+      projects: dataToCreate,
+    });
     console.log("created");
   };
 
