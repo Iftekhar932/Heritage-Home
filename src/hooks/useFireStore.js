@@ -59,7 +59,7 @@ const useFireStore = () => {
   return {
     createData,
     // mergeData,
-    deleteDoc,
+
     deleteData,
     readData,
     readAllData,

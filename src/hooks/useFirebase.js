@@ -6,7 +6,9 @@ import {
   signInWithPopup,
   signOut,
   signInWithEmailAndPassword,
+  sendPasswordResetEmail,
 } from "firebase/auth";
+
 // import { app } from "../Firebase/firebase.init.js";
 import { app } from "../firebase/firebase.init";
 import { useNavigate } from "react-router-dom";
@@ -26,11 +28,13 @@ const useFirebase = () => {
         const user = userCredential.user;
         setUser(user);
         window.alert("User Account Created");
+        navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
+        console.log("error code = " + errorCode, "message = " + errorMessage);
       })
       .finally(() => {
         setLoading(false); // Hide loading spinner
@@ -52,7 +56,8 @@ const useFirebase = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         if (errorCode || errorMessage) {
-          window.alert("Login Failed", errorMessage, errorCode);
+          window.alert(errorMessage, errorCode);
+          // console.log("Login Failed", errorMessage, errorCode);
         }
       })
       .finally(() => {
@@ -79,6 +84,22 @@ const useFirebase = () => {
   };
   /* 🔽⏬🔽⏬ SIGN OUT  🔽⏬🔽⏬ */
 
+  const sendResetEmail = (email) => {
+    console.log("mail sent");
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        // Password reset email sent!
+        window.alert("Check your Email");
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        console.log("error code: " + errorCode + " message: " + errorMessage);
+      });
+  };
+
   /* 🔽⏬🔽⏬ USER STATE OBSERVER 🔽⏬🔽⏬ */
   /* 🔽⏬🔽⏬ USER STATE OBSERVER 🔽⏬🔽⏬ */
   useEffect(() => {
@@ -91,7 +112,13 @@ const useFirebase = () => {
         setLoading(false); // Hide loading spinner
 
         // Check if the current path is in the list of allowed public pages
-        const allowedPublicPages = ["/loginPage", "/about", "/projects", "/"]; // Replace with your desired public pages
+        const allowedPublicPages = [
+          "/loginPage",
+          "/about",
+          "/projects",
+          "/forgotPWD",
+          "/!@$",
+        ]; // Replace with your desired public pages
         if (!allowedPublicPages.includes(window.location.pathname)) {
           // Redirect to the login page if the user is not logged in and the current page is not public
           navigate("/");
@@ -113,6 +140,7 @@ const useFirebase = () => {
     logOut,
     emailSignup,
     emailSignIn,
+    sendResetEmail,
   };
 };
 

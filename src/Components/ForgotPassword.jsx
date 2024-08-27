@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import useFirebase from "../hooks/useFirebase";
 import { Link } from "react-router-dom";
 
-const LoginPage = () => {
+const ForgotPassword = () => {
   // const [pwd,setPWD] = React.useState("")
-  const { emailSignIn } = useFirebase();
+  const { user, emailSignIn, sendResetEmail, passwordUpdate } = useFirebase();
   const [credentials, setCredentials] = useState({});
   const [errors, setErrors] = useState({});
 
@@ -33,11 +33,32 @@ const LoginPage = () => {
       ...prevCredentials,
       [fieldName]: fieldValue,
     }));
+
+    if (fieldName === "password") {
+      const isStrong = checkPasswordStrength(fieldValue);
+      if (!isStrong) {
+        setErrors({
+          password:
+            "Password must be at least 8 characters with at least one uppercase, lowercase, number, and special character.",
+        });
+      } else {
+        setErrors({ password: null }); // Clear password error if strong
+      }
+    }
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Validate password strength before submission
+    if (!checkPasswordStrength(credentials.password)) {
+      setErrors({
+        password:
+          "Password must be at least 8 characters with at least one uppercase, lowercase, number, and special character.",
+      });
+      return;
+    }
+
     try {
-      await emailSignIn(credentials.email, credentials.password);
+      await sendResetEmail(credentials.email);
       // Successful signup, redirect or show a success message
     } catch (error) {
       setErrors({
@@ -80,20 +101,21 @@ const LoginPage = () => {
               name="password"
               onKeyUp={handleOnBlur}
               id="phone"
-              placeholder="Enter your password"
+              placeholder="Write what you remember of your password"
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
             />
           </div>
+
           {errors.general && <p className="text-red-500">{errors.general}</p>}
           {errors.password && <p className="text-red-500">{errors.password}</p>}
 
           <div>
             <button className="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-              Sign In
+              Reset
             </button>
           </div>
           <button className="underline text-blue-400">
-            <Link to="/forgotPWD">Forgot Password</Link>
+            <Link to="/loginPage">Get back to Login Page</Link>
           </button>
         </form>
       </div>
@@ -101,4 +123,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default ForgotPassword;

@@ -10,6 +10,8 @@ import Cards from "../Components/Cards.jsx";
 import Analytics from "../Components/Analytics.jsx";
 import Footer from "../Components/Footer.jsx";
 import CombinedForm from "../Components/CombinedForm.jsx";
+import ForgotPassword from "../Components/ForgotPassword.jsx";
+import Signup from "../Components/Signup.jsx";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +45,14 @@ const router = createBrowserRouter([
       {
         path: "/dataCreateForm",
         element: <CombinedForm />,
+      },
+      {
+        path: "/!@$",
+        element: <Signup />,
+      },
+      {
+        path: "forgotPWD",
+        element: <ForgotPassword />,
       },
     ],
   },
