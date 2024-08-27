@@ -3,9 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 // components
 import LoginPage from "../Components/LoginPage.jsx";
 import Main from "../Components/Main.jsx";
-import Form from "../Components/Form.jsx";
 import Projects from "../Components/Projects.jsx";
-import UploadImg from "../Components/UploadImg.jsx";
 import AboutUs from "../Components/AboutUs.jsx";
 import Hero from "../Components/Hero.jsx";
 import Cards from "../Components/Cards.jsx";

@@ -6,7 +6,17 @@ const SingleProject = ({ projectToDisplay }) => {
   const [showModal, setShowModal] = useState(false);
   const imageRef = useRef(null);
   const modalRef = useRef(null);
-  const { image, description, project } = projectToDisplay;
+  const {
+    client,
+    description,
+    endDate,
+    image,
+    location,
+    mainContractor,
+    project,
+    startDate,
+    value,
+  } = projectToDisplay;
 
   const handleImageClick = () => {
     setShowModal(!showModal);
@@ -42,7 +52,10 @@ const SingleProject = ({ projectToDisplay }) => {
         <div className="modal" ref={modalRef}>
           <div className="modal-content">
             <img src={image} alt="project image" />
-            <button onClick={handleCloseModal} className="">
+            <button
+              onClick={handleCloseModal}
+              className="bg-black text-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto md:mx-0  py-3"
+            >
               Close
             </button>
           </div>

@@ -1,0 +1,11 @@
+.drop-area {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .drop-area.dragging {
+    border-color: #3498db;
+    background-color: #f1f1f1;
+  }
