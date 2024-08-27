@@ -8,7 +8,6 @@ import doc4 from "../assets/documents/Screenshot 2024-08-24 104123.png";
 import doc5 from "../assets/documents/Screenshot 2024-08-24 104151.png";
 import Card from "./Card";
 
-// * legal documents ekhane boshbe
 const Cards = () => {
   const documents = [doc1, doc2, doc3, doc4, doc5];
   return (
