@@ -1,18 +1,26 @@
 import React, { useEffect, useState, useRef } from "react";
-import ReactDOM from "react-dom/client";
-import "./SingleProject.css";
+
 import useFireStore from "../hooks/useFireStore";
 import useFirebase from "../hooks/useFirebase";
+import { storage } from "../firebase/firebase.init";
+import { ref, deleteObject } from "firebase/storage";
+import "./SingleProject.css";
 
 const SingleProject = ({ projectToDisplay }) => {
   const [showModal, setShowModal] = useState(false);
-  const { user } = useFirebase();
-  const { deleteData } = useFireStore();
+  const [vanish, setVanish] = useState(false);
   const imageRef = useRef(null);
   const modalRef = useRef(null);
 
+  const { user } = useFirebase();
+  const { deleteData } = useFireStore();
+
+  const dummyImg =
+    "https://firebasestorage.googleapis.com/v0/b/data-finance-yt.appspot.com/o/no-photos.png?alt=media&token=25e2d896-8805-4e92-92ce-08392bb9d890";
+
   const {
     client,
+    id,
     description,
     endDate,
     image,
@@ -44,8 +52,40 @@ const SingleProject = ({ projectToDisplay }) => {
     };
   }, []);
 
+  // Function to delete the image from Cloud Storage before deleting the document
+  const deleteImage = async () => {
+    if (image) {
+      // const storage = getStorage();
+      if (image == dummyImg) {
+        setVanish(true);
+        return;
+      }
+      const imageRef = ref(storage, image); // Assuming the image URL points to the correct location in Storage
+
+      try {
+        await deleteObject(imageRef);
+        console.log("Image deleted successfully from Storage");
+        setVanish(true);
+      } catch (error) {
+        console.error("Error deleting image from Storage:", error);
+        setVanish(false);
+      }
+    }
+  };
+
+  const handleDeleteProject = async (image, id) => {
+    await deleteImage(image); // Call deleteImage before deleting the document
+    await deleteData(id)
+      .then((d) => console.log(d))
+      .catch((err) => console.error(err)); // Delete the document
+  };
+
   return (
-    <div className="w-full shadow-xl flex flex-col p-4 my-4 rounded-lg  duration-300">
+    <div
+      className={`${
+        vanish ? "hidden" : ""
+      } w-full shadow-xl flex flex-col p-4 my-4 rounded-lg  duration-300`}
+    >
       <img
         ref={imageRef}
         src={image}
@@ -78,6 +118,9 @@ const SingleProject = ({ projectToDisplay }) => {
           Start Date: <span className="font-semibold">{startDate}</span>
         </p>
         <p className="font-bold">
+          End Date: <span className="font-semibold">{endDate}</span>
+        </p>
+        <p className="font-bold">
           Location: <span className="font-semibold">{location}</span>
         </p>
         <p className="font-bold">
@@ -93,7 +136,7 @@ const SingleProject = ({ projectToDisplay }) => {
       </div>
       {user?.email && (
         <button
-          onClick={() => deleteData(project)}
+          onClick={() => handleDeleteProject(image, id)}
           className="bg-black text-[#00df9a] w-[200px] rounded-md font-medium mt-3 mx-auto md:mx-0  py-3"
         >
           Delete

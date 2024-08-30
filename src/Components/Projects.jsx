@@ -15,19 +15,6 @@ const Projects = () => {
   const { readAllData } = useFireStore();
   const navigate = useNavigate();
 
-  console.log("🚀 ~ Projects ~ projects:", projects);
-  /* 
-  useEffect(() => {
-    listAll(ref(storage, "files")).then((imgs) => {
-      imgs?.items?.forEach((val) => {
-        getDownloadURL(val).then((url) => {
-          console.log(url);
-          setImgURL((data) => [...data, url]);
-        });
-      });
-    });
-  }, []);
- */
   useEffect(() => {
     if (user?.email === false || null) {
       navigate("/");

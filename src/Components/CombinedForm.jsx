@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
-import { getDownloadURL, uploadBytes, ref, listAll } from "firebase/storage";
+import React, { useState, useRef } from "react";
+import { getDownloadURL, uploadBytes, ref } from "firebase/storage";
 import { v4 } from "uuid";
-
 import { storage } from "../firebase/firebase.init";
 import useFireStore from "../hooks/useFireStore";
 import { useNavigate } from "react-router-dom";
@@ -18,9 +17,18 @@ const CombinedForm = () => {
 
   const navigate = useNavigate();
 
+  let dummyImg =
+    "https://firebasestorage.googleapis.com/v0/b/data-finance-yt.appspot.com/o/no-photos.png?alt=media&token=25e2d896-8805-4e92-92ce-08392bb9d890";
+
   const handleOnKeyUp = (e) => {
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
+
+    // Allow only numbers for the "value" field
+    if (fieldName === "value" && isNaN(fieldValue)) {
+      return; // Prevent non-numeric characters from being set
+    }
+
     info[fieldName] = fieldValue;
     setInfo({ ...info });
 
@@ -37,7 +45,8 @@ const CombinedForm = () => {
     ];
     const isAllFilled = requiredFields.every((field) => info[field]);
 
-    if (isAllFilled && imageFile) {
+    // if (isAllFilled && imageFile) {
+    if (isAllFilled) {
       setAllowSubmit(true);
       setErrorMsg(false);
     } else {
@@ -51,7 +60,6 @@ const CombinedForm = () => {
 
   const handleClick = async () => {
     console.log("clicked handle click");
-    console.log(info);
 
     // Check if image is already selected, avoid unnecessary uploads
     if (!imageFile) {
@@ -94,7 +102,8 @@ const CombinedForm = () => {
       startDate: info.startDate,
       endDate: info.endDate,
       value: info.value,
-      image: info.image,
+      image: info.image || dummyImg,
+      id: v4(),
     };
 
     createData(combinedData);
@@ -249,7 +258,7 @@ const CombinedForm = () => {
               htmlFor="value"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
-              Value
+              Value (Numbers Only)
             </label>
             <input
               type="text"

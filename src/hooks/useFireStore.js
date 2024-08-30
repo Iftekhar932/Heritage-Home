@@ -1,7 +1,6 @@
 import {
   collection,
   query,
-  where,
   doc,
   getDoc,
   getDocs,
@@ -26,9 +25,6 @@ const useFireStore = () => {
 
   //🟩🟩 data will be merged if the specified document already exists
   const docRef = doc(db, "construction_projects", "constructions");
-  /* const mergeData = async () => {
-    await setDoc(docRef, { bolo: "acca" }, { merge: true });
-  }; */
 
   // 🟩🟩 The following example shows how to retrieve the contents of a single document using get():
   const readData = async () => {

@@ -1,11 +1,13 @@
 import React from "react";
-import {
+/* import {
   FaDribbbleSquare,
   FaFacebook,
   FaGithub,
   FaInstagram,
   FaTwitterSquare,
-} from "react-icons/fa";
+} from "react-icons/fa"; */
+import { CiLink } from "react-icons/ci";
+
 import useScroller from "../hooks/useScroller";
 
 const Footer = () => {
@@ -65,6 +67,15 @@ const Footer = () => {
               onClick={() => scrollWithId(document.getElementById("nav")?.id)}
             >
               Back To Top
+            </li>
+            <li className="py-2 text-sm text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline cursor-pointer">
+              <a
+                href="https://www.flaticon.com/free-icons/no-photo"
+                title="some icons used from FlatIcon"
+                target="_blank"
+              >
+                <CiLink size={30} className="text-center mx-auto" />
+              </a>
             </li>
           </ul>
         </div>
