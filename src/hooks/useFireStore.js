@@ -12,7 +12,7 @@ import { db } from "../firebase/firebase.init";
 const useFireStore = () => {
   // 🟩🟩 Add a new document("constructions") in collection "construction_data"
   const createData = async (dataToCreate) => {
-    await setDoc(doc(db, "construction_projects", dataToCreate?.project), {
+    await setDoc(doc(db, "construction_projects", dataToCreate?.id), {
       projects: dataToCreate,
     });
     console.log("created");
