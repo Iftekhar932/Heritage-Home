@@ -40,7 +40,7 @@ const Projects = () => {
       {isLoading ? (
         <LoadingAnimation />
       ) : (
-        <div className="w-full mx-auto pt-8 bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 place-items-center">
+        <div className="w-full mx-auto py-8 bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
           {projects?.map((project, i) => (
             <SingleProject projectToDisplay={project} key={i} />
           ))}
