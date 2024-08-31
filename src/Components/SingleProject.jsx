@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
 
 import useFireStore from "../hooks/useFireStore";
 import useFirebase from "../hooks/useFirebase";
@@ -81,16 +82,24 @@ const SingleProject = ({ projectToDisplay }) => {
   };
 
   return (
-    <div
+    <motion.div
       className={`${
         vanish ? "hidden" : ""
-      } w-full shadow-xl flex flex-col p-4 my-4 rounded-lg  duration-300`}
+      } w-full shadow-xl flex flex-col p-4 rounded-lg  duration-300 `}
+      initial={{ scale: 1 }}
+      whileInView={{
+        scale: [2, 0.5, 1],
+        transition: { duration: 0.8 },
+      }}
     >
       <img
         ref={imageRef}
         src={image}
         alt="project image"
         onClick={handleImageClick}
+        height={"360px"}
+        width={"360px"}
+        className="mx-auto"
       />
 
       {showModal && (
@@ -142,7 +151,7 @@ const SingleProject = ({ projectToDisplay }) => {
           Delete
         </button>
       )}
-    </div>
+    </motion.div>
   );
 };
 

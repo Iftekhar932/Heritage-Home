@@ -81,7 +81,6 @@ const CombinedForm = () => {
       info["image"] = url;
       setInfo({ ...info });
       setImgURL((data) => [...data, url]);
-      console.log(imgURL);
     }
   };
 
