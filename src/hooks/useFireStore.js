@@ -63,3 +63,27 @@ const useFireStore = () => {
   };
 };
 export default useFireStore;
+
+/* 
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Define a function to check if the user is an admin
+    function isAdmin(request) {
+      // Replace "admin_uid" with the actual UID of your admin user
+      return request.auth.uid == "9CiIiokHSTQGlOu8GA1MhYndyhY2";
+    }
+
+    match /projects/{projectId} {
+      // Allow admins to create, update, and delete projects
+      allow create, update, delete: if isAdmin(request);
+
+      // Allow all users to read projects
+      allow read: true;
+    }
+  }
+}
+
+*/
