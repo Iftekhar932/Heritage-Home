@@ -16,7 +16,7 @@ const AboutUs = () => {
           transition: { duration: 1.5 },
         }}
       >
-        <img src={aboutUsIMG} alt="/" className="max-w-full max-h-80 mt-8" />
+        <img src={aboutUsIMG2} alt="/" className="max-w-full max-h-80 mt-8" />
         <div className="flex flex-col justify-center">
           <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold py-2">
             Introduction
@@ -83,11 +83,7 @@ const AboutUs = () => {
             industry knowledge.
           </p>
         </div>
-        <img
-          src={aboutUsIMG}
-          alt="/"
-          className="max-w-full max-h-80 mt-8 ms-8"
-        />
+        <img src={aboutUsIMG} alt="/" className="max-w-full max-h-80 mt-8" />
       </motion.div>
       <motion.div
         className="max-w-[1240px] mx-auto grid md:grid-cols-2 mb-12"
@@ -98,33 +94,18 @@ const AboutUs = () => {
           transition: { duration: 1.5 },
         }}
       >
-        <img src={aboutUsIMG} alt="/" className="max-w-full max-h-80 mt-8" />
+        <img src={aboutUsIMG1} alt="/" className="max-w-full max-h-80 mt-8" />
         <div className="flex flex-col justify-center">
           <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold py-2">
-            About the flourishing economy
+            Mission statement
           </h1>
           <p>
-            HERITAGE HOME CONSTRUCTION is a local Qatari company lead by a team
-            of professional members who take great pride in delivering superior
-            business results. The team is comprised of a well-educated blend of
-            unique talents in commercial construction, interior designing and
-            fit out, facility management and maintenance, and trading
-            opportunity development. Our service offering, experience, market
-            knowledge, resources and staff allow us to meet each project’s
-            increasingly complex requirements with competitive practical
-            solutions. HERITAGE HOME CONSTRUCTION’s aim is to continue growing
-            based on a service delivery model designed for long-term working
-            partnerships with our clients and help them achieve success through
-            a ‘one team one vision’ to construction and facilities services. We
-            always aim to provide a greater value for money while maintaining
-            our professional approach and desired service quality. Motivated and
-            trained staff is the cornerstone of our professional service
-            delivery and client's satisfaction. It is with this in mind that we
-            carefully select staff to deliver our projects. All our staff
-            members go through an induction period where basic skills are
-            imparted to them. We are very proud of our in-house training
-            program, which has a strong approach to technical skills and
-            industry knowledge.
+            The mission statement of HERITAGE HOME CONSTRUCTION is to be the
+            contractor of choice for our clients and to set the highest
+            standards of quality, reliability and integrity both in local and
+            international arena. Our goal is to achieve a sustained reputation
+            for the growth of the company with the finest quality, on-time
+            delivery and the best value for the client’s money.
           </p>
         </div>
       </motion.div>
