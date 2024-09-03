@@ -45,22 +45,26 @@ const Footer = () => {
         <div className="my-4 sm:my-0 text-center">
           <h6 className="font-medium text-gray-400">Company</h6>
           <ul>
-            <li
-              className="py-2 text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline text-sm cursor-pointer"
-              onClick={() =>
-                scrollWithId(document.getElementById("legalDocuments")?.id)
-              }
-            >
-              Legal Documents
-            </li>
-            <li
-              className="py-2 text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline text-sm cursor-pointer"
-              onClick={() =>
-                scrollWithId(document.getElementById("companyStructure")?.id)
-              }
-            >
-              Company Structure
-            </li>
+            {window.location.pathname === "/" && (
+              <li
+                className="py-2 text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline text-sm cursor-pointer"
+                onClick={() =>
+                  scrollWithId(document.getElementById("legalDocuments")?.id)
+                }
+              >
+                Legal Documents
+              </li>
+            )}
+            {window.location.pathname === "/" && (
+              <li
+                className="py-2 text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline text-sm cursor-pointer"
+                onClick={() => {
+                  scrollWithId(document.getElementById("companyStructure")?.id);
+                }}
+              >
+                Company Structure
+              </li>
+            )}
 
             <li
               className="py-2 text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline text-sm cursor-pointer"

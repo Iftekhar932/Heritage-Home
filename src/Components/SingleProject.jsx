@@ -85,7 +85,7 @@ const SingleProject = ({ projectToDisplay }) => {
     <motion.div
       className={`${
         vanish ? "hidden" : ""
-      } w-full shadow-xl flex flex-col p-4 rounded-lg  duration-300 `}
+      } w-full shadow-xl flex flex-col justify-evenly p-4 rounded-lg max-w-md h-auto`}
       initial={{ scale: 1 }}
       whileInView={{
         scale: [2, 0.5, 1],
@@ -108,7 +108,7 @@ const SingleProject = ({ projectToDisplay }) => {
             <img src={image} alt="project image" />
             <button
               onClick={handleCloseModal}
-              className="bg-black text-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto md:mx-0  py-3"
+              className="justify-self-end bg-black text-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto md:mx-0 py-3"
             >
               Close
             </button>
