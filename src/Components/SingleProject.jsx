@@ -91,7 +91,7 @@ const SingleProject = ({ projectToDisplay }) => {
       } w-full shadow-xl flex flex-col justify-evenly p-4 rounded-lg max-w-md h-auto`}
       initial={{ scale: 1 }}
       whileInView={{
-        scale: [2, 0.5, 1],
+        scale: [1.3, 0.8, 1],
         transition: { duration: 0.8 },
       }}
     >
