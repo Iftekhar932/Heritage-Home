@@ -78,7 +78,10 @@ const SingleProject = ({ projectToDisplay }) => {
     await deleteImage(image); // Call deleteImage before deleting the document
     await deleteData(id)
       .then((d) => console.log(d))
-      .catch((err) => console.error(err)); // Delete the document
+      .catch((err) => {
+        console.error(err);
+        setVanish(false);
+      }); // Delete the document
   };
 
   return (

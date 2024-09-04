@@ -60,19 +60,19 @@ const Navbar = () => {
           Heritage Home
         </h1>
         <ul className="uppercase p-4">
-          <Link to="/">
+          <Link onClick={handleNav} to="/">
             <li className="p-4 border-b border-gray-600 cursor-pointer">
               Home
             </li>
           </Link>
-          <Link to="/aboutUs">
+          <Link onClick={handleNav} to="/aboutUs">
             <li className="p-4 border-gray-600 cursor-pointer">About</li>
           </Link>
-          <Link to="/projects">
+          <Link onClick={handleNav} to="/projects">
             <li className="p-4 border-gray-600 cursor-pointer">Projects</li>
           </Link>
           {user?.email && (
-            <Link to="/dataCreateForm">
+            <Link onClick={handleNav} to="/dataCreateForm">
               <li className="p-4 border-b border-gray-600 cursor-pointer">
                 Form
               </li>
@@ -86,15 +86,12 @@ const Navbar = () => {
               Logout
             </li>
           ) : (
-            <Link to="/loginPage">
+            <Link onClick={handleNav} to="/loginPage">
               <li className="p-4 border-b border-gray-600 cursor-pointer">
                 Login
               </li>
             </Link>
           )}
-
-          <li className="p-4 border-b border-gray-600 cursor-pointer">About</li>
-          <li className="p-4 border-b border-gray-600 cursor-pointer">Login</li>
         </ul>
       </div>
     </div>
