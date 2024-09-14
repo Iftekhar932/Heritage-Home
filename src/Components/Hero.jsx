@@ -2,11 +2,18 @@ import React from "react";
 // import Typed from "react-typed";
 import { Link } from "react-router-dom";
 import { ReactTyped } from "react-typed";
-
+import imgURL from "../assets/project_photos/project_photo (6).jpeg";
 const Hero = () => {
   return (
-    <div className="text-white">
-      <div className="max-w-[800px] mt-[96px] w-full h-screen mx-auto text-center flex flex-col justify-center">
+    <div
+      className="text-white bg-no-repeat bg-cover bg-center bg-heroBgImg"
+      // style={{ backgroundImage: `url(${imgURL})` }}
+      data-n="hero"
+    >
+      <div
+        // className="max-w-[800px] mt-[96px]  w-full h-screen mx-auto text-center flex flex-col justify-center"
+        className="max-w-[800px]  w-full h-screen mx-auto text-center flex flex-col justify-center"
+      >
         <p className="text-[#00df9a] font-bold p-2">
           Trading And Contracting W.L.L
         </p>
