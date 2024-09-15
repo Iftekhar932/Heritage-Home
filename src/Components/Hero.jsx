@@ -6,7 +6,7 @@ import imgURL from "../assets/project_photos/project_photo (6).jpeg";
 const Hero = () => {
   return (
     <div
-      className="text-white bg-no-repeat bg-cover bg-center bg-heroBgImg"
+      className="text-white bg-no-repeat bg-cover bg-center bg-heroBgImg mix-blend-hard-light"
       // style={{ backgroundImage: `url(${imgURL})` }}
       data-n="hero"
     >
