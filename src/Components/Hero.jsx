@@ -2,8 +2,21 @@ import React from "react";
 // import Typed from "react-typed";
 import { Link } from "react-router-dom";
 import { ReactTyped } from "react-typed";
-import imgURL from "../assets/project_photos/project_photo (6).jpeg";
+import { getDownloadURL, uploadBytes, ref } from "firebase/storage";
+import { storage } from "../firebase/firebase.init";
+
 const Hero = () => {
+  const handleProfileDownload = async () => {
+    const pdfRef = ref(storage, "HHC PROFILE.pdf"); // Reference the specific PDF file
+    const url = await getDownloadURL(pdfRef);
+
+    // Create a temporary anchor element and trigger the download
+    const link = document.createElement("a");
+    link.href = url;
+    link.target = "_blank";
+    link.download = "HHC PROFILE.pdf"; // Set the desired filename
+    link.click();
+  };
   return (
     <div
       className="text-white bg-no-repeat bg-cover bg-center bg-heroBgImg mix-blend-hard-light"
@@ -36,11 +49,12 @@ const Hero = () => {
         <p className="md:text-2xl text-xl font-bold text-gray-500">
           We Are Reliable
         </p>
-        <Link to="/projects">
-          <button className="bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black">
-            Projects
-          </button>
-        </Link>
+        <button
+          onClick={handleProfileDownload}
+          className="bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black"
+        >
+          Download Profile
+        </button>
       </div>
     </div>
   );

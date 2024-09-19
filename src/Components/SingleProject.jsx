@@ -17,7 +17,7 @@ const SingleProject = ({ projectToDisplay }) => {
   const { deleteData } = useFireStore();
 
   const dummyImg =
-    "https://firebasestorage.googleapis.com/v0/b/data-finance-yt.appspot.com/o/no-photos.png?alt=media&token=25e2d896-8805-4e92-92ce-08392bb9d890";
+    "https://firebasestorage.googleapis.com/v0/b/heritage-home-2e204.appspot.com/o/no-photos.png?alt=media&token=a13ed94f-ea62-48a7-8f02-92ee78281e29";
 
   const {
     client,

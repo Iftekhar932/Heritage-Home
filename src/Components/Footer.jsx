@@ -72,10 +72,13 @@ const Footer = () => {
             >
               Back To Top
             </li>
+            <li className="py-2 text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline text-sm cursor-pointer">
+              Icons Provided by Flaticon
+            </li>
             <li className="py-2 text-sm text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline cursor-pointer">
               <a
                 href="https://www.flaticon.com/free-icons/no-photo"
-                title="some icons used from FlatIcon"
+                title="Icons from FlatIcon"
                 target="_blank"
               >
                 <CiLink size={30} className="text-center mx-auto" />

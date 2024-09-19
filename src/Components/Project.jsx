@@ -1,12 +1,5 @@
 import React from "react";
-import Single from "../assets/single.png";
-import Double from "../assets/double.png";
-import Triple from "../assets/triple.png";
-import img1 from "../assets/double.png";
 import { motion } from "framer-motion";
-
-/* image fetch kore ekhane jei object theke details antesi shekhane  IMAGE FETCH KORE AINE OBJECT A RAKHTE HOBE
-ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR */
 
 const Project = ({ singleProject }) => {
   const { id, project, email, description, image } = singleProject;
