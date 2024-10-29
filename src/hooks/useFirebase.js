@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  signInWithPopup,
   signOut,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
@@ -117,7 +116,6 @@ const useFirebase = () => {
           "/about",
           "/projects",
           "/forgotPWD",
-          "/!@$",
         ]; // Replace with your desired public pages
         if (!allowedPublicPages.includes(window.location.pathname)) {
           // Redirect to the login page if the user is not logged in and the current page is not public

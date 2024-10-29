@@ -43,6 +43,11 @@ const Navbar = () => {
             <li className="p-4 cursor-pointer">Login</li>
           </Link>
         )}
+        {user?.email && (
+          <Link onClick={handleNav} to="/signup">
+            <li className="p-4  cursor-pointer">Signup</li>
+          </Link>
+        )}
       </ul>
       {/* Mobile */}
       <div onClick={handleNav} className="block md:hidden ">
@@ -89,6 +94,13 @@ const Navbar = () => {
             <Link onClick={handleNav} to="/loginPage">
               <li className="p-4 border-b border-gray-600 cursor-pointer">
                 Login
+              </li>
+            </Link>
+          )}
+          {user?.email && (
+            <Link onClick={handleNav} to="/signup">
+              <li className="p-4 border-b border-gray-600 cursor-pointer">
+                Sign Up
               </li>
             </Link>
           )}

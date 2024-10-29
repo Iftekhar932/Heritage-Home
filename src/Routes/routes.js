@@ -8,7 +8,6 @@ import AboutUs from "../Components/AboutUs.jsx";
 import Hero from "../Components/Hero.jsx";
 import Cards from "../Components/Cards.jsx";
 import Analytics from "../Components/Analytics.jsx";
-import Footer from "../Components/Footer.jsx";
 import CombinedForm from "../Components/CombinedForm.jsx";
 import ForgotPassword from "../Components/ForgotPassword.jsx";
 import Signup from "../Components/Signup.jsx";
@@ -47,7 +46,7 @@ const router = createBrowserRouter([
         element: <CombinedForm />,
       },
       {
-        path: "/!@$",
+        path: "/signup",
         element: <Signup />,
       },
       {
