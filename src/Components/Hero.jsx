@@ -1,6 +1,5 @@
 import React from "react";
 // import Typed from "react-typed";
-import { Link } from "react-router-dom";
 import { ReactTyped } from "react-typed";
 import { getDownloadURL, uploadBytes, ref } from "firebase/storage";
 import { storage } from "../firebase/firebase.init";
