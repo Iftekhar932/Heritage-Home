@@ -44,7 +44,7 @@ const Navbar = () => {
           </Link>
         )}
         {user?.email && (
-          <Link onClick={handleNav} to="/signup">
+          <Link to="/signup">
             <li className="p-4  cursor-pointer">Signup</li>
           </Link>
         )}
