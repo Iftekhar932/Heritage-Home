@@ -45,7 +45,7 @@ const Navbar = () => {
         )}
         {user?.email && (
           <Link to="/signup">
-            <li className="p-4  cursor-pointer">Signup</li>
+            <li className="p-4  cursor-pointer">Add new admin</li>
           </Link>
         )}
       </ul>
@@ -100,7 +100,7 @@ const Navbar = () => {
           {user?.email && (
             <Link onClick={handleNav} to="/signup">
               <li className="p-4 border-b border-gray-600 cursor-pointer">
-                Sign Up
+                Add new admin
               </li>
             </Link>
           )}
