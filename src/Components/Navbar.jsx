@@ -104,6 +104,9 @@ const Navbar = () => {
               </li>
             </Link>
           )}
+          <li className="p-4 border-b border-gray-600 cursor-pointer">
+            User: {user?.email}
+          </li>
         </ul>
       </div>
     </div>
