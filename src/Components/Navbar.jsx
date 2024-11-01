@@ -68,7 +68,7 @@ const Navbar = () => {
           Heritage Home
         </h1>
         <ul className="uppercase p-4">
-          <li className="p-4 border-b border-gray-600 cursor-pointer bg-red-300">
+          <li className="p-4 border-b border-gray-600 cursor-pointer">
             User: {user?.email}
           </li>
           <Link onClick={handleNav} to="/">
