@@ -12,6 +12,7 @@ import useScroller from "../hooks/useScroller";
 
 const Footer = () => {
   const { scrollWithId } = useScroller();
+
   return (
     <div className="max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300">
       <div>
@@ -45,34 +46,13 @@ const Footer = () => {
         <div className="my-4 sm:my-0 text-center">
           <h6 className="font-medium text-gray-400">Company</h6>
           <ul>
-            {window.location.pathname === "/" && (
-              <li
-                className="py-2 text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline text-sm cursor-pointer"
-                onClick={() =>
-                  scrollWithId(document.getElementById("legalDocuments")?.id)
-                }
-              >
-                Legal Documents
-              </li>
-            )}
-            {window.location.pathname === "/" && (
-              <li
-                className="py-2 text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline text-sm cursor-pointer"
-                onClick={() => {
-                  scrollWithId(document.getElementById("companyStructure")?.id);
-                }}
-              >
-                Company Structure
-              </li>
-            )}
-
             <li
               className="py-2 text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline text-sm cursor-pointer"
               onClick={() => scrollWithId(document.getElementById("nav")?.id)}
             >
               Back To Top
             </li>
-            <li className="py-2 text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline text-sm cursor-pointer">
+            <li className="py-2 text-[#00df9a] hover:bg-[hsl(161,100%,10%)] text-sm cursor-pointer">
               Icons Provided by Flaticon
             </li>
             <li className="py-2 text-sm text-[#00df9a] hover:bg-[hsl(161,100%,10%)] underline cursor-pointer">
