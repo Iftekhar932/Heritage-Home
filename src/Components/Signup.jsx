@@ -113,9 +113,6 @@ const Signup = () => {
               Submit
             </button>
           </div>
-          <button className="underline text-blue-400">
-            <Link to="/forgotPWD">Forgot Password</Link>
-          </button>
         </form>
       </div>
     </div>
