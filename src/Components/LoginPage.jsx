@@ -50,7 +50,7 @@ const LoginPage = () => {
     <div className="flex items-center justify-center p-12">
       {/* <!-- Author: FormBold Team -->
   <!-- Learn More: https://formbold.com --> */}
-      <div className="p-4 mx-auto w-full max-w-[550px] bg-white">
+      <div className="p-4 mx-auto w-full max-w-[550px] bg-[#e6e6e6] rounded">
         <form onSubmit={handleSubmit}>
           <div className="mb-5">
             <label

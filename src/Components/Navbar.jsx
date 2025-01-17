@@ -48,9 +48,16 @@ const Navbar = () => {
             <li className="p-4  cursor-pointer">Add new admin</li>
           </Link>
         )}
-        <li className="p-4 border-b border-gray-600 cursor-pointer">
+        {user?.email ? (
+          <li className="p-4 border-b border-gray-600 cursor-pointer">
+            User: {user?.email}
+          </li>
+        ) : (
+          ""
+        )}
+        {/* <li className="p-4 border-b border-gray-600 cursor-pointer">
           User: {user?.email}
-        </li>
+        </li> */}
       </ul>
       {/* Mobile */}
       <div onClick={handleNav} className="block md:hidden ">
@@ -68,9 +75,16 @@ const Navbar = () => {
           Heritage Home
         </h1>
         <ul className="uppercase p-4">
-          <li className="p-4 border-b border-gray-600 cursor-pointer">
+          {user?.email ? (
+            <li className="p-4 border-b border-gray-600 cursor-pointer">
+              User: {user?.email}
+            </li>
+          ) : (
+            ""
+          )}
+          {/* <li className="p-4 border-b border-gray-600 cursor-pointer">
             User: {user?.email}
-          </li>
+          </li> */}
           <Link onClick={handleNav} to="/">
             <li className="p-4 border-b border-gray-600 cursor-pointer">
               Home
