@@ -89,7 +89,7 @@ const LoginPage = () => {
 
           <div>
             <button className="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-              Sign In(Needs Admin's Authorization to be member)
+              Sign In (Needs Admin's Authorization to be member)
             </button>
           </div>
           <button className="underline text-blue-400">
