@@ -40,7 +40,7 @@ const Navbar = () => {
           </li>
         ) : (
           <Link to="/loginPage">
-            <li className="p-4 cursor-pointer">Login</li>
+            <li className="p-4 cursor-pointer">Authorized Access</li>
           </Link>
         )}
         {user?.email && (
@@ -113,7 +113,7 @@ const Navbar = () => {
           ) : (
             <Link onClick={handleNav} to="/loginPage">
               <li className="p-4 border-b border-gray-600 cursor-pointer">
-                Login
+                Authorized Access
               </li>
             </Link>
           )}
