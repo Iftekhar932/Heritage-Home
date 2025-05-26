@@ -28,7 +28,7 @@ This is a construction company's website, where they can display their legal doc
 ## 🧩 Key Features
 
 - 🔒 Authorized Account Creation
-- 🕵️ Hidden admin-only route: `/admin/!@$` not exposed in UI
+- 🕵️ Hidden admin-only route: `/!@$` not exposed in UI
 - 💾 Integrated with Firestore / Firebase / Firebase Storage
 - 📱 Fully responsive UI using Tailwind
 - 🛠️ Built with React.JS
