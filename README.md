@@ -8,6 +8,10 @@ This is a construction company's website, where they can display their legal doc
 
 ---
 
+## 📸 Screenshots
+![Home Page](.screenshot2.png)
+
+
 ## 👥 User Roles
 
 - 🔐 Account creation needs authorization from Admin
@@ -20,7 +24,7 @@ This is a construction company's website, where they can display their legal doc
 > 💡 Use **only dummy data** for demo accounts
 
 - **Admin Login**  
-  Email: `admin@example.com`  
+  Email: `admin@gmail.com`  
   Password: `!@#123Qq`
 
 ---
