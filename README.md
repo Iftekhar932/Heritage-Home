@@ -9,7 +9,7 @@ This is a construction company's website, where they can display their legal doc
 ---
 
 ## 📸 Screenshots
-![Home Page](.screenshot2.png)
+![Home Page](./Screenshot2.png)
 
 
 ## 👥 User Roles
